@@ -1,7 +1,7 @@
 // Import libraries
-import * as THREE from 'https://unpkg.com/three@0.124.0/build/three.module.js'
-import { OrbitControls } from 'https://unpkg.com/three@0.124.0/examples/jsm/controls/OrbitControls.js'
-import { Rhino3dmLoader } from 'https://unpkg.com/three@0.124.0/examples/jsm/loaders/3DMLoader.js'
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.module.js'
+import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js'
+import { Rhino3dmLoader } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/loaders/3DMLoader.js'
 
 THREE.Object3D.DefaultUp = new THREE.Vector3( 0, 0, 1 );
 
