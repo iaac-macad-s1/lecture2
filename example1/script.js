@@ -1,3 +1,8 @@
+// load three.js
+import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.module.js'
+
+// uncomment to load controls
+// import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js'
 
 // create a scene and a camera
 const scene = new THREE.Scene()
@@ -10,7 +15,7 @@ renderer.setSize( window.innerWidth, window.innerHeight )
 document.body.appendChild( renderer.domElement )
 
 // Uncomment next line to add controls
-// const controls = new THREE.OrbitControls( camera, renderer.domElement );
+// const controls = new OrbitControls( camera, renderer.domElement );
 
 // Create an object and add it to the scene:
 
