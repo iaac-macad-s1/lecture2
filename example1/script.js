@@ -36,6 +36,7 @@ function animate() {
 
     requestAnimationFrame( animate )
 
+    // rotate torus a little bit each frame
     torus.rotation.x += 0.01
     torus.rotation.y += 0.01
 
