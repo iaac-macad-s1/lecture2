@@ -6,6 +6,7 @@
 		<style>
 			body { margin: 0; }
 
+			/* CSS for a spinning animation */ 
 			#loader {
                 border: 5px solid #f3f3f3; /* Light grey */
                 border-top: 5px solid #3d3d3d; /* Grey */
@@ -16,7 +17,6 @@
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                z-index: 2;
             }
 
             @keyframes spin {
@@ -24,12 +24,16 @@
                 100% { transform: rotate(360deg); }
             }
 
+            #container {
+                position: absolute;
+                z-index: 100;
+                top: 0;
+            }
+
 		</style>
 	</head>
 	<body>
 		<div id="loader"></div>
-		<input type="button" value="download model" disabled>
-		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/rhino3dm@0.13.0/rhino3dm.min.js"></script>
         <script type="module" src="./script.js"></script>
 	</body>
 </html>
