@@ -3,6 +3,9 @@ import * as THREE from 'https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.m
 import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/controls/OrbitControls.js'
 import { Rhino3dmLoader } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examples/jsm/loaders/3DMLoader.js'
 
+const button = document.querySelector('input')
+button.addEventListener('click', download)
+
 // ensure the rhino3dm library is loaded
 let rhino
 rhino3dm().then(async m => {
@@ -14,10 +17,11 @@ rhino3dm().then(async m => {
     create()
 })
 
+let doc
 function create () {
 
     // create a new Rhino document
-    const doc = new rhino.File3dm()
+    doc = new rhino.File3dm()
 
     // define a few points
     const ptA = [0, 0, 0]
@@ -46,10 +50,22 @@ function create () {
 
       // hide spinner
       document.getElementById('loader').remove()
+      button.disabled = false
       console.log(object)
       scene.add(object)
   
     } )
+
+}
+
+function download() {
+
+    const buffer = doc.toByteArray()
+    const blob = new Blob( [ buffer ], { type: 'application/octect-stream' } )
+    const link = document.createElement( 'a' )
+    link.href = window.URL.createObjectURL( blob )
+    link.download = 'myRhinoFile.3dm'
+    link.click()
 
 }
 
