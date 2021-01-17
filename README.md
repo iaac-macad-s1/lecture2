@@ -6,6 +6,7 @@ These examples introduce html and javascript concepts we'll be using in the semi
 
 - [Example 1](example1): A sample that uses the [three.js](https://threejs.org) library
 - [Example 2](example2): A sample that uses the [rhino3dm](https://www.rhino3d.com/features/rhino3dm/) library
+- [Example 3](example3): A sample that creates Rhino objects with the rhino3dm library and visualizes them with three.js
 
 ## References
 

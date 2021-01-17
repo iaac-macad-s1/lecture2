@@ -7,6 +7,7 @@ THREE.Object3D.DefaultUp = new THREE.Vector3( 0, 0, 1 );
 
 // create a scene and a camera
 const scene = new THREE.Scene()
+scene.background = new THREE.Color(1,1,1)
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
 camera.position.y = - 30
 
@@ -28,6 +29,8 @@ loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@0.13.0/' )
 
 loader.load( 'Rhino_Logo.3dm', function ( object ) {
 
+    // uncomment to hide spinner when model loads
+    // document.getElementById('loader').remove()
     scene.add( object )
 
 } )
