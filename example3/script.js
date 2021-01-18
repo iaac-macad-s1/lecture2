@@ -66,7 +66,6 @@ function onClick( event ) {
     let container = document.getElementById( 'container' )
     if (container) container.remove()
 
-    
     if (intersects.length > 0) {
 
         const cnt = intersects[0].object.parent.userData.attributes.userStringCount
