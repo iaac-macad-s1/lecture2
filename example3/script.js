@@ -18,7 +18,7 @@ function init() {
     scene = new THREE.Scene()
     scene.background = new THREE.Color(1,1,1)
     camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 )
-    camera.position.y = - 30
+    camera.position.y = - 100
 
     // create the renderer and add it to the html
     renderer = new THREE.WebGLRenderer( { antialias: true } )
@@ -50,7 +50,7 @@ function init() {
 
 function onClick( event ) {
 
-    console.log( 'clicked!' )
+    console.log( `click! (${event.clientX}, ${event.clientY})`)
 
 	// calculate mouse position in normalized device coordinates
     // (-1 to +1) for both components
@@ -66,14 +66,35 @@ function onClick( event ) {
     let container = document.getElementById( 'container' )
     if (container) container.remove()
 
+    // reset object colours
+    scene.traverse((child, i) => {
+        if (child.isMesh) {
+            child.material.color.set( 'white' )
+        }
+    });
+
     if (intersects.length > 0) {
 
-        const cnt = intersects[0].object.parent.userData.attributes.userStringCount
+        // get closest object
+        const object = intersects[0].object
+        console.log(object) // debug
 
-        if ( cnt === 0 ) return
+        object.material.color.set( 'yellow' )
 
-        const data = intersects[0].object.parent.userData.attributes.userStrings
+        // get user strings
+        let data, count
+        if (object.userData.attributes !== undefined) {
+            data = object.userData.attributes.userStrings
+        } else {
+            // breps store user strings differently...
+            data = object.parent.userData.attributes.userStrings
+        }
 
+        // do nothing if no user strings
+        if ( data === undefined ) return
+
+        console.log( data )
+        
         container = document.createElement( 'div' )
         container.id = 'container'
 
@@ -86,8 +107,6 @@ function onClick( event ) {
         }
 
         document.body.appendChild( container )
-
-        console.log(intersects[0].object.parent.userData.attributes.userStrings)
     }
 
 }
