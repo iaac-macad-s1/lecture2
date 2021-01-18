@@ -24,11 +24,25 @@
                 100% { transform: rotate(360deg); }
             }
 
+            /* style user strings pop-up */
             #container {
                 position: absolute;
                 z-index: 100;
                 top: 0;
+                margin: 10px;
+                padding: 10px;
+                background-color: black;
+                color: white;
+                width: 250px;
+                font-family: monospace;
             }
+
+            table { border: none; border-collapse: collapse; }
+            table td {
+                border-left: 1px solid white;
+                padding: 10px;
+            }
+            table td:first-child { border-left: none; }
 
 		</style>
 	</head>

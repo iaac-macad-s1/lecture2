@@ -95,15 +95,18 @@ function onClick( event ) {
 
         console.log( data )
         
+        // create container div with table inside
         container = document.createElement( 'div' )
         container.id = 'container'
+        
+        const table = document.createElement( 'table' )
+        container.appendChild( table )
 
         for ( let i = 0; i < data.length; i ++ ) {
 
-            let entry = document.createElement( 'div' )
-            entry.innerHTML = data[ i ][ 0 ] + ': ' + data[ i ][ 1 ]
-
-            container.appendChild( entry )
+            const row = document.createElement( 'tr' )
+            row.innerHTML = `<td>${data[ i ][ 0 ]}</td><td>${data[ i ][ 1 ]}</td>`
+            table.appendChild( row )
         }
 
         document.body.appendChild( container )
