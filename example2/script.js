@@ -15,7 +15,7 @@ animate()
 function init () {
 
     // Rhino models are z-up, so set this as the default
-    THREE.Object3D.DefaultUp = new THREE.Vector3( 0, 0, 1 );
+    THREE.Object3D.DefaultUp = new THREE.Vector3( 0, 0, 1 )
 
     // create a scene and a camera
     scene = new THREE.Scene()
@@ -29,12 +29,12 @@ function init () {
     document.body.appendChild( renderer.domElement )
 
     // add some controls to orbit the camera
-    const controls = new OrbitControls( camera, renderer.domElement );
+    const controls = new OrbitControls( camera, renderer.domElement )
 
     // add a directional light
-    const directionalLight = new THREE.DirectionalLight( 0xffffff );
-    directionalLight.intensity = 2;
-    scene.add( directionalLight );
+    const directionalLight = new THREE.DirectionalLight( 0xffffff )
+    directionalLight.intensity = 2
+    scene.add( directionalLight )
 
     // load the model
     const loader = new Rhino3dmLoader()
