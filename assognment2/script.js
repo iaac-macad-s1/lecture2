@@ -135,7 +135,7 @@ function onClick(event) {
         for (let i = 0; i < data.length; i++) {
 
             const row = document.createElement('tr')
-            row.innerHTML = `<td>Click Click, and more Click</td>`
+            row.innerHTML = `<td>Remove the box out of the object without making object turning red.</td><td>Try to click only the box.</td>`
                 //row.innerHTML = `<td>Inside this box there is ${data[ i ][ 0 ]}</td><td>${data[ i ][ 1 ]}</td>`
             table.appendChild(row)
         }
