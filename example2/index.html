@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>S1 - Lecture 2 - Example 2</title>
+		<title>S1 - Lecture 2 - Example 3</title>
 		<style>
 			body { margin: 0; }
 
@@ -24,11 +24,55 @@
                 100% { transform: rotate(360deg); }
             }
 
+            /* style user strings pop-up */
+            #container {
+                position: absolute;
+                z-index: 100;
+                top: 0;
+                margin: 10px;
+                padding: 10px;
+                background-color: black;
+                color: rgb(255, 255, 255);
+                width: 250px;
+                font-family: monospace;
+            }
+
+            table { border: none; border-collapse: collapse; }
+            table td {
+                border-left: 1px solid white;
+                padding: 10px;
+            }
+            table td:first-child { border-left: none; }
+
+            <meta charset="utf-8">
+            <title>Example 1</title>
+
+            <!-- css -->
+            /* uncomment to change default font */
+            html {
+                font-family: monospace;
+            } 
+
+            img {
+                width: 512px; /* set image width */
+            }
+
+            div.center {
+            text-align: center;
+            font-family: monospace;
+            border: 3px solid rgb(0, 0, 0);
+            style= "color:rgb(104,104,104)"
+            }
+
 		</style>
 	</head>
 	<body>
-		<!-- Uncomment to add a spinner -->
-		<!-- div id="loader"></div> -->
+
+        /*<div id="loader"></div>*/
+
+        <div class="center">
+            <p>The different landmasses of the Earth</p>
+          </div>
         <script type="module" src="./script.js"></script>
 	</body>
 </html>
