@@ -99,26 +99,34 @@ function onClick(event) {
 
         // create transparency of materials when clicked
         console.log(object) // debug
-        object.material.color.set('pink')
-            //object.material.opacity = 0.2
-            //object.material.transparent = true
-        object.rotation.x += 0.02;
-        object.rotation.y += 0.02;
-        object.rotation.z += 0.1;
 
-        // get user strings
-        let data, count
-        if (object.userData.attributes !== undefined) {
-            data = object.userData.attributes.userStrings
-            object.material.color.set('crimson')
-        } else {
-            // breps store user strings differently...
+        let data
+        if (object.parent.userData.objectType == 'Brep') {
+            // breps are loaded as a collection of meshes representing the individual brep faces
+            // when raycasting, the intersection will be with one of the brep faces
+            // to modify the brep itself, we may need to look at the object's "parent"
+
+            // all brep faces share the same material, changing the colour will affect all faces
+            object.material.color.set('pink')
+
+            // apply rotation to parent to apply it to all brep faces
+            object.parent.rotation.x += 0.02;
+            object.parent.rotation.y += 0.02;
+            object.parent.rotation.z += 0.1;
+
+            // get user strings from parent brep
             data = object.parent.userData.attributes.userStrings
+        } else {
+            // not a brep
+            // the intersection will be with the object itself
+
+            object.material.color.set('crimson')
+
+            data = object.userData.attributes.userStrings
         }
 
         // do nothing if no user strings
         if (data === undefined)
-
             return
 
         console.log(data)
