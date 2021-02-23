@@ -5,7 +5,7 @@ import { Rhino3dmLoader } from 'https://cdn.jsdelivr.net/npm/three@0.124.0/examp
 
 // declare variables to store scene, camera, and renderer
 let scene, camera, renderer
-const model = 'Rhino_Logo.3dm'
+const model = 'Pipe.3dm'
 
 // call functions
 init()
@@ -35,7 +35,7 @@ function init () {
     const directionalLight = new THREE.DirectionalLight( 0xffffff )
     directionalLight.intensity = 2
     scene.add( directionalLight )
-
+    
     // load the model
     const loader = new Rhino3dmLoader()
     loader.setLibraryPath( 'https://cdn.jsdelivr.net/npm/rhino3dm@0.13.0/' )
@@ -43,7 +43,7 @@ function init () {
     loader.load( model, function ( object ) {
 
         // uncomment to hide spinner when model loads
-        // document.getElementById('loader').remove()
+        document.getElementById('loader').remove()
         scene.add( object )
 
     } )
